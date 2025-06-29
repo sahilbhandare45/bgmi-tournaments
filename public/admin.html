@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard – BGMI Registrations</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #111827;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logout-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f8f8f8;
+    }
+
+    td button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-screen {
+      max-width: 400px;
+      margin: 100px auto;
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button.login-btn {
+      background-color: #111827;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Admin Dashboard – BGMI Registrations</h1>
+</header>
+
+<div class="login-screen" id="login">
+  <h2>🔐 Admin Login</h2>
+  <input type="password" id="admin-password" placeholder="Enter admin password">
+  <button class="login-btn" onclick="checkPassword()">Login</button>
+</div>
+
+<div class="container" id="content" style="display: none;">
+  <div class="top-bar">
+    <h2>📋 Registered Teams</h2>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <table id="team-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>BGMI ID</th>
+        <th>Team</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script>
+  const SHEET_API = 'https://api.sheetbest.com/sheets/25c6170a-c597-4a6d-a233-3221c1bbbc70'; // 🔁 Replace with your Sheet.best link
+
+  function checkPassword() {
+    const pwd = document.getElementById("admin-password").value;
+    fetch("/admin-login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: pwd })
+    }).then(res => {
+      if (res.status === 200) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        loadTeams();
+      } else {
+        alert("Incorrect password.");
+      }
+    });
+  }
+
+  async function loadTeams() {
+    const res = await fetch(SHEET_API);
+    const data = await res.json();
+
+    const tableBody = document.querySelector('#team-table tbody');
+    tableBody.innerHTML = '';
+
+    data.forEach(team => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${team.Name}</td>
+        <td>${team.Email}</td>
+        <td>${team.Phone}</td>
+        <td>${team["BGMI ID"]}</td>
+        <td>${team.Team}</td>
+        <td><button onclick="deleteTeam('${team["BGMI ID"]}')">Delete</button></td>
+      `;
+      tableBody.appendChild(row);
+    });
+  }
+
+  async function deleteTeam(bgmiId) {
+    if (!confirm(`Delete team with BGMI ID ${bgmiId}?`)) return;
+
+    const res = await fetch(`/delete/${bgmiId}`, {
+      method: 'DELETE'
+    });
+
+    const result = await res.json();
+    alert(result.message);
+    loadTeams();
+  }
+
+  async function logout() {
+    const res = await fetch("/logout", { method: "POST" });
+    if (res.redirected) {
+      window.location.href = res.url;
+    } else {
+      window.location.reload();
+    }
+  }
+</script>
+
+</body>
+</html>
