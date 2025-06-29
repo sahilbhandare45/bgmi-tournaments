@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGMI Elite Tournament</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .bg-gaming-pattern {
+            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4fcde75e-5fe5-447d-9ff8-7d1609689d33.png');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(15, 23, 42, 0.9);
+        }
+
+        .qr-placeholder {
+            background-image: url('qr-img.jpeg');
+            background-size: cover;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        .player-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b72fe093-6554-4e25-9b17-1f087f2be639.png"
+                    alt="BGMI Elite Tournament Logo - Shield with crossed guns" class="w-10 h-10">
+                <h1
+                    class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                    BGMI ELITE</h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#live" class="hover:text-blue-400 transition">Live Stream</a>
+                <a href="#tournaments" class="hover:text-blue-400 transition">Tournaments</a>
+                <a href="#rules" class="hover:text-blue-400 transition">Rules</a>
+                <a href="#prizes" class="hover:text-blue-400 transition">Prizes</a>
+            </div>
+            <button class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gaming-pattern min-h-screen flex items-center justify-center text-center px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-center px-4">BGMI ELITE TOURNAMENT</h1>
+            <p class="text-xl md:text-2xl mb-8">Compete against the best players in India. Win exciting prizes and prove
+                your skills!</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#register"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition">Register
+                    Now</a>
+                <a href="#tournaments"
+                    class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full transition">View
+                    Schedule</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section id="live" class="py-12 bg-gray-900">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">Live Tournament Stream</h2>
+            <div class="aspect-w-16 aspect-h-9 w-full">
+                <iframe src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" frameborder="0"
+                    allowfullscreen class="w-full h-full min-h-[500px] rounded-lg shadow-lg"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-lg mb-4">Watch the tournament live with commentary!</p>
+                <div class="flex justify-center gap-4">
+                    <a href="#register" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg">Register to Play</a>
+                    <a href="#tournaments" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg">View Schedule</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl bg-gray-800/50 rounded-xl p-8 backdrop-blur-md border border-gray-700">
+            <h2 class="text-3xl font-bold mb-8 text-center">Register for Tournament</h2>
+
+            <div class="grid-cols-1 sm:grid-cols-1 md:grid-cols-2">
+                <!-- Registration Form -->
+                <div class="space-y-4">
+                    <div>
+                        <label for="name" class="block mb-2">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your name"
+                            class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email"
+                            class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="phone" class="block mb-2">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number"
+                            class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="bgmi-id" class="block mb-2">BGMI ID</label>
+                        <input type="text" id="bgmi-id" placeholder="Enter your BGMI ID"
+                            class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div id="bgmi-validation" class="text-xs mt-1 hidden">
+                            <span id="bgmi-validation-text" class="inline-flex items-center"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="team-name" class="block mb-2">Team Name</label>
+                        <input type="text" id="team-name" placeholder="Enter your team name (if any)"
+                            class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button id="register-btn"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition mt-4">Complete
+                        Registration</button>
+                </div>
+
+                <!-- Payment Section -->
+                <div class="flex flex-col items-center justify-center bg-gray-800 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">Entry Fee: Free</h3>
+                    <div class="qr-placeholder w-48 h-48 rounded-lg mb-4"></div>
+                    <p class="text-sm text-center mb-4">Scan this QR code to make payment via UPI</p>
+                    <div class="flex flex-col sm:flex-row gap-2 w-full">
+                        <input type="text" id="transaction-id" placeholder="Enter UPI Transaction ID"
+                            class="w-full sm:flex-1 px-4 py-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button id="verify-payment"
+                            class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg">
+                            Verify
+                        </button>
+                    </div>
+
+                    <div id="payment-status" class="text-center text-sm mt-2 hidden">
+                        <span id="payment-status-text" class="inline-flex items-center"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Details (Shown after successful registration) -->
+            <div id="room-details"
+                class="hidden mt-8 bg-green-900/20 border border-green-500 rounded-xl p-6 text-center">
+                <h3 class="text-2xl font-bold mb-2">Registration Successful!</h3>
+                <p class="mb-4">Your tournament details have been sent to your email and WhatsApp number.</p>
+
+                <div class="bg-gray-800 rounded-lg p-4 max-w-md mx-auto">
+                    <!-- Still exists for JS, but visually hidden -->
+                    <div class="hidden">
+                        <div class="grid grid-cols-2 gap-4 mb-2">
+                            <div class="text-right">Room ID:</div>
+                            <div class="text-left font-mono" id="display-room-id">---</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-right">Password:</div>
+                            <div class="text-left font-mono" id="display-room-pass">---</div>
+                        </div>
+                    </div>
+
+                    <!-- New visible message -->
+                    <p class="text-sm text-gray-300">
+                        Room ID and Password will be sent to your registered WhatsApp number before the match starts.
+                    </p>
+                </div>
+
+                <p class="mt-4 text-sm">Join exactly at the scheduled time. Late entries won't be allowed.</p>
+            </div>
+
+    </section>
+    </section>
+
+    <!-- Admin Section (Hidden by default) -->
+    <section id="admin" class="hidden py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">Admin Dashboard</h2>
+
+            <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-700">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
+                    <h3 class="text-xl font-bold">Player Registrations</h3>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                        <select id="status-filter" class="px-4 py-2 bg-gray-700 rounded-lg">
+                            <option value="">All Statuses</option>
+                            <option value="Registered">Registered</option>
+                            <option value="Waiting">Waiting</option>
+                        </select>
+                        <select id="payment-filter" class="px-4 py-2 bg-gray-700 rounded-lg">
+                            <option value="">All Payments</option>
+                            <option value="Verified">Verified</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                        <div class="flex gap-2 w-full sm:w-auto">
+                            <input type="text" id="player-search" placeholder="Search players..."
+                                class="px-4 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                oninput="filterPlayers()">
+                            <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto scrollbar-hide rounded-lg border border-gray-700">
+                        <table class="min-w-full divide-y divide-gray-700">
+                            <thead class="bg-gray-900/50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Name</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">BGMI ID</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Team</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Payment</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Room ID</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Status</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="players-table" class="divide-y divide-gray-700">
+                                <!-- Player data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-gray-800 rounded-xl p-4">
+                    <h3 class="text-lg font-bold mb-3">Bulk Actions</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <button id="export-csv" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Export to
+                            CSV</button>
+                        <button id="send-reminders" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg">Send
+                            Reminders</button>
+                        <button id="refresh-data" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg">Refresh
+                            Data</button>
+                    </div>
+                </div>
+                <!-- Matches Section -->
+                <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-700">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold">Match Management</h3>
+                        <button onclick="showAddMatchModal()"
+                            class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">
+                            Add New Match
+                        </button>
+                    </div>
+
+                    <div class="overflow-x-auto scrollbar-hide rounded-lg border border-gray-700">
+                        <table class="min-w-full divide-y divide-gray-700">
+                            <thead class="bg-gray-900/50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Match Name</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Date</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Time</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Map</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Status</th>
+                                    <th class="px-6 py-3 text-left text-sm font-bold text-xs md:text-sm">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="matches-table" class="divide-y divide-gray-700">
+                                <!-- Match data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4 mb-8">
+                    <!-- Stats Cards -->
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h4 class="font-bold mb-2">Total Registrations</h4>
+                        <p class="text-3xl" id="total-registrations">0</p>
+                        <div class="flex gap-2 mt-4">
+                            <!-- Add right below the stats cards -->
+                            <div class="flex gap-2 mt-2">
+                                <button id="admin-minus" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg">-1
+                                    Team</button>
+                                <button id="admin-plus" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg">+1
+                                    Team</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h4 class="font-bold mb-2">Verified Payments</h4>
+                        <p class="text-3xl" id="verified-payments">0</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h4 class="font-bold mb-2">Active Rooms</h4>
+                        <p class="text-3xl" id="active-rooms">0</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Tournament Details -->
+    <section id="tournaments" class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">Upcoming Tournaments</h2>
+
+            <div class="space-y-4">
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-blue-500">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold">Elite Solo Tournament</h3>
+                        <span class="bg-blue-600 text-xs px-3 py-1 rounded-full">Upcoming</span>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <div class="text-sm text-gray-400">Date</div>
+                            <div>29 June 2023</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-400">Time</div>
+                            <div>6:00 PM IST</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-400">Prize Pool</div>
+                            <div>₹50</div>
+                        </div>
+                    </div>
+                    <!-- Team Registration Progress -->
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm text-gray-400 mb-1">
+                            <span id="team-count-label">0 / 12 Teams Registered</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div id="registration-progress"
+                                class="bg-green-500 h-3 rounded-full transition-all duration-300" style="width: 0%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 pt-4 border-t border-gray-700">
+                        <button class="text-blue-400 hover:underline">Details</button>
+                        <a href="#register" class="text-blue-400 hover:underline">Register Now</a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-blue-500">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Elite Solo Tournament</h3>
+                            <span class="bg-blue-600 text-xs px-3 py-1 rounded-full">Upcoming</span>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                                <div class="text-sm text-gray-400">Date</div>
+                                <div>29 June 2023</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Time</div>
+                                <div>10:00 PM IST</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Prize Pool</div>
+                                <div>₹50</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 pt-4 border-t border-gray-700">
+                            <button class="text-blue-400 hover:underline">Details</button>
+                            <a href="#register" class="text-blue-400 hover:underline">Register Now</a>
+                        </div>
+                    </div>
+
+                    <!-- More tournaments would be listed here -->
+                </div>
+            </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="py-20 px-4 bg-gray-900">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">Tournament Rules</h2>
+
+            <div class="space-y-4">
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-3">General Rules</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>All participants must have a valid BGMI account in good standing.</li>
+                        <li>The use of cheats, hacks, or any unauthorized third-party software is strictly prohibited.
+                        </li>
+                        <li>Players must join the room exactly at the scheduled time. Late entries won't be permitted.
+                        </li>
+                        <li>Any form of unsportsmanlike conduct may result in disqualification.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-3">Game Settings</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Map: Erangel</li>
+                        <li>Perspective: TPP</li>
+                        <li>Game Mode: Classic</li>
+                        <li>Kill points: +5 per kill</li>
+                        <li>Placement points: 1st - 30, 2nd - 20, 3rd - 15, etc.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8d2eb511-5449-4d1d-9007-af38e3e25205.png"
+                        alt="BGMI Elite Tournament Logo - Small version" class="w-8 h-8">
+                    <h2 class="text-xl font-bold">BGMI ELITE</h2>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-blue-400 transition">Terms</a>
+                    <a href="#" class="hover:text-blue-400 transition">Privacy</a>
+                    <a href="#" class="hover:text-blue-400 transition">Contact</a>
+                    <button id="admin-login" class="text-red-400 hover:text-red-300">Admin Login</button>
+                </div>
+            </div>
+            <div class="mt-6 text-center text-sm text-gray-500">
+                © 2023 BGMI Elite Tournament. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+async function loadProgressBar() {
+    try {
+        const res = await fetch('/progress');
+        const data = await res.json();
+
+        const percent = (data.current / data.max) * 100;
+        document.getElementById('registration-progress').style.width = `${percent}%`;
+        document.getElementById('team-count-label').textContent =
+            `${data.current} / ${data.max} Teams Registered`;
+
+        const registerBtn = document.getElementById('register-btn');
+        if (data.current >= data.max) {
+            registerBtn.disabled = true;
+            registerBtn.classList.add('bg-gray-500', 'cursor-not-allowed');
+            registerBtn.textContent = 'Registration Full';
+        }
+    } catch (err) {
+        console.error('Progress fetch failed:', err);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadProgressBar(); // Load on start
+
+    document.getElementById('register-btn').addEventListener('click', async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const bgmiId = document.getElementById('bgmi-id').value.trim();
+        const team = document.getElementById('team-name').value.trim();
+
+        if (!name || !email || !phone || !bgmiId) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        try {
+            const response = await fetch("/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, phone, bgmiId, team })
+            });
+
+            const result = await response.json();
+            alert(result.message || "Registered successfully!");
+
+            // ✅ Refresh progress bar after registration
+            await loadProgressBar();
+
+            // ✅ Show room details if any
+            const roomDetails = document.getElementById('room-details');
+            if (roomDetails) {
+                roomDetails.classList.remove('hidden');
+                roomDetails.scrollIntoView({ behavior: 'smooth' });
+            }
+
+        } catch (err) {
+            console.error("Registration failed:", err);
+            alert("Failed to register. Please try again.");
+        }
+    });
+});
+
+
+
+
+        // Sample players data
+        let players = JSON.parse(localStorage.getItem("players")) || [
+            {
+                name: "Rahul Sharma",
+                bgmiId: "5432167890",
+                team: "Phoenix",
+                payment: "Verified",
+                roomId: "69420124",
+                status: "Registered"
+            },
+            {
+                name: "Priya Patel",
+                bgmiId: "9876543210",
+                team: "Valkyrie",
+                payment: "Verified",
+                roomId: "69420124",
+                status: "Registered"
+            },
+            {
+                name: "Amit Kumar",
+                bgmiId: "1234567890",
+                team: "None",
+                payment: "Pending",
+                roomId: "---",
+                status: "Waiting"
+            }
+        ];
+
+        // DOM Elements
+        const registerBtn = document.getElementById('register-btn');
+        const roomDetails = document.getElementById('room-details');
+        const adminSection = document.getElementById('admin');
+        const adminLoginBtn = document.getElementById('admin-login');
+        const playersTable = document.getElementById('players-table');
+        const totalRegistrationsEl = document.getElementById('total-registrations');
+        const verifiedPaymentsEl = document.getElementById('verified-payments');
+        const activeRoomsEl = document.getElementById('active-rooms');
+        const displayRoomId = document.getElementById('display-room-id');
+        const displayRoomPass = document.getElementById('display-room-pass');
+
+        // New admin panel functions
+        function filterPlayers() {
+            const searchTerm = document.getElementById('player-search').value.toLowerCase();
+            const statusFilter = document.getElementById('status-filter').value;
+            const paymentFilter = document.getElementById('payment-filter').value;
+
+            const filtered = players.filter(player => {
+                return (player.name.toLowerCase().includes(searchTerm) ||
+                    player.bgmiId.includes(searchTerm)) &&
+                    (statusFilter === '' || player.status === statusFilter) &&
+                    (paymentFilter === '' || player.payment === paymentFilter);
+            });
+            renderFilteredPlayers(filtered);
+        }
+
+        function renderFilteredPlayers(filteredPlayers) {
+            playersTable.innerHTML = '';
+            filteredPlayers.forEach(player => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-700/50 even:bg-gray-800/50';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${player.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${player.bgmiId}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${player.team}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="${player.payment === 'Verified' ? 'text-green-400' : 'text-yellow-400'}">${player.payment}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">${player.roomId}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 text-xs rounded-full ${player.status === 'Registered' ? 'bg-blue-600' : 'bg-gray-600'}">${player.status}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <button class="text-blue-400 hover:text-blue-300 mr-2" onclick="editPlayer('${player.bgmiId}')">Edit</button>
+                        <button class="text-red-400 hover:text-red-300" onclick="deletePlayer('${player.bgmiId}')">Delete</button>
+                    </td>
+                `;
+                playersTable.appendChild(row);
+            });
+        }
+
+        let currentlyEditing = null;
+
+        function editPlayer(bgmiId) {
+            const player = players.find(p => p.bgmiId === bgmiId);
+            if (player) {
+                currentlyEditing = player;
+                document.getElementById('edit-name').value = player.name;
+                document.getElementById('edit-bgmi').value = player.bgmiId;
+                document.getElementById('edit-team').value = player.team;
+                document.getElementById('edit-payment').value = player.payment;
+                document.getElementById('edit-status').value = player.status;
+                document.getElementById('edit-modal').classList.remove('hidden');
+            }
+        }
+
+        function savePlayerChanges() {
+            if (!currentlyEditing) return;
+
+            const updatedPlayer = {
+                ...currentlyEditing,
+                name: document.getElementById('edit-name').value,
+                bgmiId: document.getElementById('edit-bgmi').value,
+                team: document.getElementById('edit-team').value,
+                payment: document.getElementById('edit-payment').value,
+                status: document.getElementById('edit-status').value
+            };
+
+            const index = players.findIndex(p => p.bgmiId === currentlyEditing.bgmiId);
+            if (index !== -1) {
+                players[index] = updatedPlayer;
+                populatePlayersTable();
+                localStorage.setItem('players', JSON.stringify(players));
+            }
+
+            document.getElementById('edit-modal').classList.add('hidden');
+            currentlyEditing = null;
+        }
+
+        function deletePlayer(bgmiId) {
+            if (confirm('Are you sure you want to delete this player?')) {
+                const index = players.findIndex(p => p.bgmiId === bgmiId);
+                if (index !== -1) {
+                    players.splice(index, 1);
+                    localStorage.setItem('players', JSON.stringify(players));
+                    populatePlayersTable();
+                }
+            }
+        }
+
+        // Generate random room ID and password
+        function generateRoomDetails() {
+            const roomId = Math.floor(10000000 + Math.random() * 90000000).toString();
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let password = '';
+            for (let i = 0; i < 8; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return { roomId, password };
+        }
+
+        // Populate players table
+        function populatePlayersTable() {
+            playersTable.innerHTML = '';
+            players.forEach(player => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-700';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${player.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${player.bgmiId}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${player.team}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="${player.payment === 'Verified' ? 'text-green-400' : 'text-yellow-400'}">${player.payment}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">${player.roomId}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 text-xs rounded-full ${player.status === 'Registered' ? 'bg-blue-600' : 'bg-gray-600'}">${player.status}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <button class="text-blue-400 hover:text-blue-300 mr-2" onclick="editPlayer('${player.bgmiId}')">Edit</button>
+                        <button class="text-red-400 hover:text-red-300" onclick="deletePlayer('${player.bgmiId}')">Delete</button>
+                    </td>
+                `;
+                playersTable.appendChild(row);
+            });
+
+            // Update stats
+            totalRegistrationsEl.textContent = players.length;
+            verifiedPaymentsEl.textContent = players.filter(p => p.payment === 'Verified').length;
+            activeRoomsEl.textContent = new Set(players.filter(p => p.roomId !== '---').map(p => p.roomId)).size;
+        }
+
+        // Event Listeners
+        registerBtn.addEventListener('click', () => {
+            // Enhanced validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const bgmiId = document.getElementById('bgmi-id').value;
+            const transactionId = document.getElementById('transaction-id').value;
+
+            let isValid = true;
+            if (!name || !email || !phone || !bgmiId || !transactionId) {
+                alert('Please fill all required fields');
+                isValid = false;
+            }
+
+            // Validate BGMI ID format (numeric, 10 digits)
+            if (!/^\d{10}$/.test(bgmiId)) {
+                document.getElementById('bgmi-validation').classList.remove('hidden');
+                document.getElementById('bgmi-validation-text').textContent = 'BGMI ID must be 10 digits';
+                document.getElementById('bgmi-validation-text').classList.add('text-red-400');
+                isValid = false;
+            }
+
+            // Check payment verification
+            if (!document.getElementById('payment-status').classList.contains('hidden') &&
+                !document.getElementById('payment-status-text').textContent.includes('Verified')) {
+                alert('Please verify your payment first');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Generate room details
+            const { roomId, password } = generateRoomDetails();
+            displayRoomId.textContent = roomId;
+            displayRoomPass.textContent = password;
+
+            // Show room details
+            roomDetails.classList.remove('hidden');
+
+            // Add player to system
+            const newPlayer = {
+                name,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                bgmiId,
+                team: document.getElementById('team-name').value || 'None',
+                payment: 'Verified',
+                roomId,
+                status: 'Registered'
+            };
+
+            players.push(newPlayer);
+            localStorage.setItem('players', JSON.stringify(players));
+
+
+            // Update admin panel if visible
+            if (!adminSection.classList.contains('hidden')) {
+                populatePlayersTable();
+            }
+
+            // Scroll to room details
+            roomDetails.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Verify payment button handler
+        document.getElementById('verify-payment').addEventListener('click', () => {
+            const transactionId = document.getElementById('transaction-id').value;
+            if (!transactionId) {
+                alert('Please enter transaction ID');
+                return;
+            }
+
+            // Simulate payment verification (in real app would call API)
+            const paymentStatus = document.getElementById('payment-status');
+            const statusText = document.getElementById('payment-status-text');
+
+            paymentStatus.classList.remove('hidden');
+            statusText.textContent = 'Payment Verified';
+            statusText.classList.remove('text-yellow-400');
+            statusText.classList.add('text-green-400');
+        });
+
+        // Admin login and real-time updates
+        adminLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const password = prompt('Enter admin password:');
+            if (password === 'sahil@roshan908') {
+                adminSection.classList.remove('hidden');
+                adminSection.scrollIntoView({ behavior: 'smooth' });
+                populatePlayersTable();
+
+                // Simulate real-time updates (in real app would use WebSocket)
+                setInterval(() => {
+                    if (!adminSection.classList.contains('hidden')) {
+                        populatePlayersTable();
+                    }
+                }, 5000); // Refresh every 5 seconds
+            } else {
+                alert('Incorrect password');
+            }
+        });
+
+        // BGMI ID live validation
+        document.getElementById('bgmi-id').addEventListener('input', (e) => {
+            const bgmiId = e.target.value;
+            const validation = document.getElementById('bgmi-validation');
+            const statusText = document.getElementById('bgmi-validation-text');
+
+            if (!bgmiId) {
+                validation.classList.add('hidden');
+                return;
+            }
+
+            validation.classList.remove('hidden');
+            if (/^\d{10}$/.test(bgmiId)) {
+                statusText.textContent = 'Valid BGMI ID';
+                statusText.classList.remove('text-red-400');
+                statusText.classList.add('text-green-400');
+            } else {
+                statusText.textContent = 'Must be 10 digits';
+                statusText.classList.remove('text-green-400');
+                statusText.classList.add('text-red-400');
+            }
+        });
+
+        // Match Management Functions
+        let matches = [
+            {
+                name: "Elite Solo Finals",
+                date: "2023-06-15",
+                time: "19:00",
+                map: "Erangel",
+                status: "Scheduled"
+            }
+        ];
+        let currentlyEditingMatch = null;
+
+        function showAddMatchModal() {
+            document.getElementById('match-name').value = '';
+            document.getElementById('match-date').value = '';
+            document.getElementById('match-time').value = '';
+            document.getElementById('match-map').value = 'Erangel';
+            document.getElementById('add-match-modal').classList.remove('hidden');
+        }
+
+        function addNewMatch() {
+            const name = document.getElementById('match-name').value;
+            const date = document.getElementById('match-date').value;
+            const time = document.getElementById('match-time').value;
+
+            if (!name || !date || !time) {
+                alert('Please fill all required fields');
+                return;
+            }
+
+            const match = {
+                name,
+                date,
+                time,
+                map: document.getElementById('match-map').value,
+                status: "Scheduled"
+            };
+
+            matches.push(match);
+            populateMatchesTable();
+            document.getElementById('add-match-modal').classList.add('hidden');
+        }
+
+        function editMatch(matchName) {
+            const match = matches.find(m => m.name === matchName);
+            if (match) {
+                currentlyEditingMatch = match;
+                document.getElementById('edit-match-name').value = match.name;
+                document.getElementById('edit-match-date').value = match.date;
+                document.getElementById('edit-match-time').value = match.time;
+                document.getElementById('edit-match-map').value = match.map;
+                document.getElementById('edit-match-status').value = match.status;
+                document.getElementById('edit-match-modal').classList.remove('hidden');
+            }
+        }
+
+        function saveMatchChanges() {
+            if (!currentlyEditingMatch) return;
+
+            const updatedMatch = {
+                name: document.getElementById('edit-match-name').value,
+                date: document.getElementById('edit-match-date').value,
+                time: document.getElementById('edit-match-time').value,
+                map: document.getElementById('edit-match-map').value,
+                status: document.getElementById('edit-match-status').value
+            };
+
+            const index = matches.findIndex(m => m.name === currentlyEditingMatch.name);
+            if (index !== -1) {
+                matches[index] = updatedMatch;
+                populateMatchesTable();
+            }
+
+            document.getElementById('edit-match-modal').classList.add('hidden');
+            currentlyEditingMatch = null;
+        }
+
+        function deleteMatch(matchName) {
+            if (confirm('Are you sure you want to delete this match?')) {
+                const index = matches.findIndex(m => m.name === matchName);
+                if (index !== -1) {
+                    matches.splice(index, 1);
+                    populateMatchesTable();
+                }
+            }
+        }
+
+
+
+        function populateMatchesTable() {
+            const table = document.getElementById('matches-table');
+            table.innerHTML = '';
+
+            matches.forEach(match => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-700/50 even:bg-gray-800/50';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${match.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${match.date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${match.time}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${match.map}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 text-xs rounded-full ${match.status === 'Scheduled' ? 'bg-blue-600' : match.status === 'Live' ? 'bg-green-600' : 'bg-gray-600'}">
+                            ${match.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <button class="text-blue-400 hover:text-blue-300 mr-2" onclick="editMatch('${match.name}')">Edit</button>
+                        <button class="text-red-400 hover:text-red-300" onclick="deleteMatch('${match.name}')">Delete</button>
+                    </td>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            populateMatchesTable();
+            populateMatchesTable();
+            populateMatchesTable();
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        const maxTeams = 12;
+        let registeredTeams = parseInt(localStorage.getItem("registeredTeams")) || 0;
+
+        // Update progress bar (already used)
+        function updateProgressBar() {
+            const percentage = (registeredTeams / maxTeams) * 100;
+            document.getElementById('registration-progress').style.width = `${percentage}%`;
+            document.getElementById('team-count-label').textContent = `${registeredTeams} / ${maxTeams} Teams Registered`;
+
+            const registerButton = document.getElementById('register-btn');
+            if (registeredTeams >= maxTeams) {
+                registerButton.disabled = true;
+                registerButton.classList.add("bg-gray-500", "cursor-not-allowed");
+                registerButton.textContent = "Registration Full";
+            } else {
+                registerButton.disabled = false;
+                registerButton.classList.remove("bg-gray-500", "cursor-not-allowed");
+                registerButton.textContent = "Complete Registration";
+            }
+        }
+        // Admin Buttons
+        document.getElementById("admin-plus")?.addEventListener("click", () => {
+            if (registeredTeams < maxTeams) {
+                registeredTeams++;
+                localStorage.setItem("registeredTeams", registeredTeams);
+                updateProgressBar();
+            }
+        });
+
+        document.getElementById("admin-minus")?.addEventListener("click", () => {
+            if (registeredTeams > 0) {
+                registeredTeams--;
+                localStorage.setItem("registeredTeams", registeredTeams);
+                updateProgressBar();
+            }
+        });
+
+        // Run initially
+        updateProgressBar();
+    </script>
+    <!-- Edit Player Modal -->
+    <div id="edit-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden ">
+        <div
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-xl p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">Edit Player</h3>
+                <button onclick="document.getElementById('edit-modal').classList.add('hidden')"
+                    class="text-gray-400 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block mb-2">Name</label>
+                    <input type="text" id="edit-name" class="w-full px-4 py-2 bg-gray-700 rounded-lg">
+                </div>
+                <div>
+                    <label class="block mb-2">BGMI ID</label>
+                    <input type="text" id="edit-bgmi" class="w-full px-4 py-2 bg-gray-700 rounded-lg">
+                </div>
+                <div>
+                    <label class="block mb-2">Team</label>
+                    <input type="text" id="edit-team" class="w-full px-4 py-2 bg-gray-700 rounded-lg">
+                </div>
+                <div>
+                    <label class="block mb-2">Payment</label>
+                    <select id="edit-payment" class="w-full px-4 py-2 bg-gray-700 rounded-lg">
+                        <option value="Verified">Verified</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block mb-2">Status</label>
+                    <select id="edit-status" class="w-full px-4 py-2 bg-gray-700 rounded-lg">
+                        <option value="Registered">Registered</option>
+                        <option value="Waiting">Waiting</option>
+                    </select>
+                </div>
+                <button onclick="savePlayerChanges()" class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg">Save
+                    Changes</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
